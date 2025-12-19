@@ -1,9 +1,13 @@
-const express = require ('express');
-const path = require('path');
-const posts = require('./routes/posts');
+import express from 'express';
+import path from 'path';
+import posts from './routes/posts.js';
 const port = process.env.PORT || 5000;
 
 const app = express();
+
+//Body parser middware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
 
 
 //Setup static folder
